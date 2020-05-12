@@ -1,6 +1,7 @@
 ---
 - name: apt-get update
-  shell: apt-get update -y
+  shell: apt-get update
+  become: yes
   become_user: root
 
 - name: Update all packages to the latest version
