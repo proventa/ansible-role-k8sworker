@@ -8,9 +8,9 @@
   command: apt-mark hold kubelet kubeadm kubectl
 
 - name: Test reachability to k8s master node
-  net_ping:
-    dest: k8smaster
+  command: ping k8smaster
   register: k8smasterping
+  ignore_errors: True
 
 - name: join k8smaster node
   shell: |
