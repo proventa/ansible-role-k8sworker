@@ -7,6 +7,11 @@
 - name: disable auto update of k8s components
   command: apt-mark hold kubelet kubeadm kubectl
 
+- name: Test reachability to k8s master node
+  net_ping:
+    dest: k8smaster
+  register: k8smasterping
+
 - name: join k8smaster node
   shell: |
     kubeadm join \
@@ -16,3 +21,4 @@
     sha256:{{ discovery_token }}
   args:
     executable: /bin/bash
+  when: k8smasterping is succeeded
