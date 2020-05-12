@@ -68,3 +68,13 @@
     state: enabled
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
+
+- name: calico networking port
+  firewalld:
+    port: "179/tcp"
+    permanent: yes
+    immediate: yes
+    zone: public
+    state: enabled
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'

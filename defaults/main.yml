@@ -12,8 +12,8 @@ debian: apt
 k8s_apt_gpg_key_url: https://packages.cloud.google.com/{{ debian }}/doc/apt-key.gpg
 
 # k8smaster node tokens
-join_token: 1hoh2n.kn46qq69eojaippc
-discovery_token: 565b07bfaa54e326a20a49ceccf00a183a6861889e6ce0f7883671f1526e3a5d
+join_token: uwox66.vl5ugqsfso6uoyec
+discovery_token: 0835ef3a6038ba5cfe8d4ed6425d8ce0f5ca12b7464f16dc0e901e0fe75a28cd
 
 # Kubernetes ports and ip
 k8s_master_ip: 192.168.56.160
