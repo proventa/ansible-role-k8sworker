@@ -10,7 +10,8 @@
 - name: Test reachability to k8s master node
   shell: ping k8smaster
   register: k8smasterping
-  ignore_errors: True
+  async: 15
+  poll: 5
 
 - name: join k8smaster node
   shell: |
