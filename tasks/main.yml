@@ -1,0 +1,10 @@
+---
+- name: Prepare OS
+  block:
+    - import_tasks: update_os.yml
+    - import_tasks: firewall.yml
+    - import_tasks: add_repo.yml
+
+- name: Install k8s and join master
+  block:
+    - import_tasks: k8s_worker_install.yml

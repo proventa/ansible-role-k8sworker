@@ -1,0 +1,11 @@
+---
+- name: Add k8s apt key.
+  apt_key:
+    url: "{{ k8s_apt_gpg_key_url }}"
+    state: present
+
+- name: Add k8s repository.
+  apt_repository:
+    repo: "{{ k8s_repo }}"
+    state: present
+    update_cache: true

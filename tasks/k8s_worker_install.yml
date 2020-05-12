@@ -1,0 +1,18 @@
+---
+- name: install k8s components in version {{ k8s_version }}
+  apt:
+    name: "{{ k8s_components }}"
+    state: present
+
+- name: disable auto update of k8s components
+  command: apt-mark hold kubelet kubeadm kubectl
+
+- name: join k8smaster node
+  shell: |
+    kubeadm join \
+    --token {{ join_token }} \
+    {{ k8s_master_hostname }}:{{ k8s_master_port }} \
+    --discovery-token-ca-cert-hash \
+    sha256:{{ discovery_token }}
+  args:
+     executable: /bin/bash

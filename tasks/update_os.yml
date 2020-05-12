@@ -1,0 +1,48 @@
+---
+- name: Update all packages to the latest version
+  apt:
+    upgrade: dist
+
+- name: Upgrade all packages to the latest version
+  apt:
+    name: "*"
+    state: latest
+
+- name: install os dependencies
+  apt:
+    name: "{{ os_dependencies }}"
+    state: present
+
+- name: install selinux dependencies
+  apt:
+    name: "{{ selinux_dependencies }}"
+    state: present
+
+- name: start service firewalld
+  systemd:
+    state: started
+    name: firewalld
+
+- name: enable service firewalld
+  systemd:
+    name: firewalld
+    enabled: yes
+    masked: no
+
+- name: add k8s master host to hosts file
+  shell: |
+    tee -a /etc/hosts<<EOF
+    {{ k8s_master_ip }} {{ k8s_master_hostname }}
+    EOF
+  args:
+    executable: /bin/bash
+
+- name: Disable swap
+  shell: swapoff -a
+
+- name: Disable swap permanently
+  replace:
+    path: /etc/fstab
+    regexp: '^(\s*)([^#\n]+\s+)(\w+\s+)swap(\s+.*)$'
+    replace: '#\1\2\3swap\4'
+    backup: yes

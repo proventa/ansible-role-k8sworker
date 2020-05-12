@@ -1,0 +1,4 @@
+---
+- hosts: k8s-cluster-workers
+  roles:
+    - ansible-role-k8sworker

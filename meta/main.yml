@@ -1,0 +1,21 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: k8sworker
+  description: Role for deploying a k8s worker node with kubeadm on Ubuntu 18.04
+  author: yanehi
+  company: ""
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.5.1
+  platforms:
+    - name: ubuntu
+      versions:
+        - 18.04
+    - name: kubernetes
+      versions:
+        - 1.18
+  galaxy_tags:
+    - kubernetes
+    - kubeadm
+    - workernode

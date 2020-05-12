@@ -1,0 +1,45 @@
+---
+# Set major version of Kubernetes
+k8s_version: 1.18.1-00
+
+# Kubernetes repo
+k8s_repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+
+# OS Type
+debian: apt
+
+# Kubernetes GPG key
+k8s_apt_gpg_key_url: https://packages.cloud.google.com/{{ debian }}/doc/apt-key.gpg
+
+# k8smaster node tokens
+join_token: 1hoh2n.kn46qq69eojaippc
+discovery_token: 565b07bfaa54e326a20a49ceccf00a183a6861889e6ce0f7883671f1526e3a5d
+
+# Kubernetes ports and ip
+k8s_master_ip: 192.168.56.160
+k8s_master_port: 6443
+etcd_connection_port: 2379
+etcd_raft_port: 2380
+
+# Kubernetes environments
+k8s_master_hostname: k8smaster
+k8s_home: /root
+k8s_user: root
+
+# OS dependencies
+os_dependencies:
+    - firewalld
+    - net-tools
+    - python3
+
+# SElinux dependencies
+selinux_dependencies:
+    - selinux-basics
+    - selinux-policy-default
+    - auditd
+
+# Kubeadm, kubelet and kubectl
+k8s_components:
+    - kubeadm={{ k8s_version }}
+    - kubelet={{ k8s_version }}
+    - kubectl={{ k8s_version }}
