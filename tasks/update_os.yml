@@ -1,4 +1,7 @@
 ---
+- name: apt-get update
+  shell: sudo apt-get update -y
+  
 - name: Update all packages to the latest version
   apt:
     upgrade: dist
