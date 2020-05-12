@@ -28,7 +28,6 @@ k8s_user: root
 
 # OS dependencies
 os_dependencies:
-    - iputils-ping
     - gpg-agent
     - firewalld
     - net-tools
