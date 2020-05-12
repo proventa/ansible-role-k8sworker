@@ -15,4 +15,4 @@
     --discovery-token-ca-cert-hash \
     sha256:{{ discovery_token }}
   args:
-     executable: /bin/bash
+    executable: /bin/bash
