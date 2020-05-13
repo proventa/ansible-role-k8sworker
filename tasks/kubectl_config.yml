@@ -1,0 +1,12 @@
+---
+- name: kube directory for kubectl config file
+  file:
+    path: "{{ k8s_home }}/.kube"
+    owner: "{{ k8s_user }}"
+    group: "{{ k8s_user }}"
+    state: directory
+
+- name: touch config for kubectl
+  file:
+    path: "{{ k8s_home }}/.kube/config"
+    state: touch

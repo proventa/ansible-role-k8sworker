@@ -8,3 +8,4 @@
 - name: Install k8s and join master
   block:
     - import_tasks: k8s_worker_install.yml
+    - import_tasks: kubectl_config.yml
