@@ -56,7 +56,7 @@ k8s_components:
 
 Installs the k8s components which will be needed on every node. The version you specified in `default/main.yml`.
 
-## Disble swap on host
+## Disable swap on host
 
 ```yml
 - name: Disable swap
