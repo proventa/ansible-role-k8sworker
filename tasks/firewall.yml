@@ -19,7 +19,7 @@
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
 
-- name: kubernetes master port
+- name: kubernetes api server
   firewalld:
     port: "{{ k8s_master_port }}/tcp"
     permanent: yes
@@ -29,7 +29,7 @@
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
 
-- name: kubernetes firewall rule
+- name: kubelet port
   firewalld:
     port: "10250/tcp"
     permanent: yes
@@ -39,7 +39,7 @@
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
 
-- name: kubernetes firewall rule
+- name: kube-scheduler port
   firewalld:
     port: "10251/tcp"
     permanent: yes
@@ -49,19 +49,9 @@
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
 
-- name: kubernetes firewall rule
+- name: kube-controller manager port
   firewalld:
     port: "10252/tcp"
-    permanent: yes
-    immediate: yes
-    zone: public
-    state: enabled
-  vars:
-    ansible_python_interpreter: '/usr/bin/python3'
-
-- name: kubernetes firewall rule
-  firewalld:
-    port: "10255/tcp"
     permanent: yes
     immediate: yes
     zone: public
