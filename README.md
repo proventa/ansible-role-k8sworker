@@ -1,4 +1,4 @@
-# Ansible Role: <Rolename>
+# Ansible Role: K8s worker
 
 [![Build Status](https://travis-ci.com/yanehi/ansible-role-k8sworker.svg?branch=master)](https://travis-ci.org/yanehi/ansible-role-k8sworker)
 
